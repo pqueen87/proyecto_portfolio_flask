@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <title>{% block title %}{% endblock %} - Mi Portfolio</title>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <header>
+    <nav>
+        <ul>
+            <li><strong><a href="/">Mi Portfolio</a></strong></li>
+        </ul>
+        <ul>
+            <li><a href="/sobre-mi">Sobre Mí</a></li>
+            <li><a href="/proyectos">Proyectos</a></li>
+            <li><a href="/blog">Blog</a></li>
+            {% if session.logged_in %}
+                <li><a href="/blog/create">Crear Post</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+        </header>
+        <hr>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi Blog{% endblock %}
+
+{% block content %}
+    <hgroup>
+        <h1>Mi Blog</h1>
+        <h2><a href="{{ url_for('create') }}" role="button">Crear Nuevo Post</a></h2>
+    </hgroup>
+    
+    {% for post in posts %}
+        <article>
+            <header>
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <strong>{{ post['title'] }}</strong>
+                </a>
+                <br>
+                <small>Publicado: {{ post['created'] }}</small>
+            </header>
+        </article>
+    {% endfor %}
+{% endblock %}

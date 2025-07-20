@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Mis Proyectos{% endblock %}
+
+{% block content %}
+    <hgroup>
+        <h1>Mis Proyectos</h1>
+        <h2>Aquí puedes ver algunos de los proyectos que he construido.</h2>
+    </hgroup>
+    
+    {% for proyecto in proyectos %}
+        <article>
+            <header><strong>{{ proyecto.titulo }}</strong></header>
+            {{ proyecto.descripcion }}
+        </article>
+    {% endfor %}
+    
+{% endblock %}
